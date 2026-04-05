@@ -1,0 +1,46 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 255, 255, 255;
+  --background-start-rgb: 26, 26, 46;
+  --background-end-rgb: 22, 33, 62;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+  min-height: 100vh;
+}
+
+@layer components {
+  .agent-card {
+    @apply relative bg-office-card rounded-xl p-6 border border-office-accent transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-office-accent/20;
+  }
+  
+  .agent-avatar {
+    @apply w-20 h-20 rounded-full flex items-center justify-center text-3xl font-bold shadow-lg;
+  }
+  
+  .status-dot {
+    @apply absolute -bottom-1 -right-1 w-6 h-6 rounded-full border-4 border-office-card;
+  }
+  
+  .business-tab {
+    @apply px-6 py-3 rounded-lg font-semibold transition-all duration-200;
+  }
+  
+  .business-tab.active {
+    @apply bg-office-accent text-white;
+  }
+  
+  .business-tab:not(.active) {
+    @apply bg-office-card/50 text-gray-400 hover:bg-office-card hover:text-white;
+  }
+}
